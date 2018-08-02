@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+  postgres:
+    container_name: cont_postgres
+    image: postgres:10.4
+    environment:
+      - POSTGRES_PASSWORD=nhjkmuhjv
+      - POSTGRES_USER=pik
+    ports:
+      - "8681:5432"
