@@ -15,4 +15,9 @@ restart :
 down :
 	@ docker-compose -f docker-compose.yml down
 
-
+startup : up
+	@ cd app/ && cp .env.dist .env \
+    && composer install \
+    && bin/console doctrine:migrations:migrate \
+    && bin/console server:run -n\
+    && sensible-browser http://localhost:8000 \
